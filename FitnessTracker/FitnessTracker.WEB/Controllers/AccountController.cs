@@ -23,14 +23,14 @@ namespace FitnessTracker.WEB.Controllers
 
 
         [HttpGet]
-        [Route(Name = "Login1")]
+        [Route("Login")]
         public ActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        [Route(Name = "Login2")]
+        [Route("Login")]
         public ActionResult Login(LoginViewModel loginModel)
         {
             if(!ModelState.IsValid)
@@ -50,7 +50,7 @@ namespace FitnessTracker.WEB.Controllers
 
         [Authorize]
         [HttpGet]
-        [Route(Name = "Logout")]
+        [Route("Logout")]
         public ActionResult Logout()
         {
            _authentication.LogOut();
@@ -59,14 +59,14 @@ namespace FitnessTracker.WEB.Controllers
         }
 
         [HttpGet]
-        [Route(Name = "Register1")]
+        [Route("Register")]
         public ActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
-        [Route(Name = "Register2")]
+        [Route("Register")]
         public ActionResult Register(NewUserViewModel model)
         {
             if(!ModelState.IsValid)
