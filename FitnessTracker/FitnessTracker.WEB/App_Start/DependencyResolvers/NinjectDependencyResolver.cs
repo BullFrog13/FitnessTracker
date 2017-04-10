@@ -6,6 +6,8 @@ using Ninject;
 using NLog;
 using FitnessTracker.BLL.Interfaces;
 using FitnessTracker.BLL.Services;
+using FitnessTracker.WEB.Auth.Interfaces;
+using FitnessTracker.WEB.Auth.Principal;
 using FitnessTracker.WEB.AutomapperRegistrations;
 
 namespace FitnessTracker.WEB.DependencyResolvers
@@ -36,6 +38,10 @@ namespace FitnessTracker.WEB.DependencyResolvers
             _kernel.Bind<IProfileService>().To<ProfileService>();
 
             _kernel.Bind<IStatisticService>().To<StatisticService>();
+
+            _kernel.Bind<ITokenService>().To<TokenService>();
+
+            _kernel.Bind<IAuthentication>().To<Authentication>();
 
             _kernel.Bind<ILogger>().ToMethod(p =>
             {

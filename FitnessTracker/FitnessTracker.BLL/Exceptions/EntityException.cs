@@ -4,11 +4,11 @@ namespace FitnessTracker.BLL.Exceptions
 {
     public class EntityException : Exception
     {
-        public EntityException(string message, string entity) : base(message)
+        protected EntityException(string message, string entity) : base(message)
         {
             Entity = entity;
         }
 
-        public string Entity { get; }
+        private string Entity { get; }
     }
 }

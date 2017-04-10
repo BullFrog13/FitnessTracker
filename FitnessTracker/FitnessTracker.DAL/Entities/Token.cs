@@ -8,7 +8,7 @@ namespace FitnessTracker.DAL.Entities
         [ForeignKey("User")]
         public int UserId { get; set; }
 
-        public string AuthToken { get; set; }
+        public Guid TokenId { get; set; }
 
         public DateTime IssuedOn { get; set; }
 

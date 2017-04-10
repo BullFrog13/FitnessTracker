@@ -11,10 +11,14 @@ namespace FitnessTracker.DAL.Interfaces
 
         IEnumerable<T> Find(Func<T, bool> predicate);
 
+        T FindOne(Func<T, bool> predicate);
+
         void Create(T item);
 
         void Update(T item);
 
         void Delete(int id);
+
+        void Delete(Func<T, bool> predicate);
     }
 }

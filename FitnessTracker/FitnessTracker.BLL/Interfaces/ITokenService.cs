@@ -1,4 +1,5 @@
-﻿using FitnessTracker.BLL.DTO;
+﻿using System;
+using FitnessTracker.BLL.DTO;
 
 namespace FitnessTracker.BLL.Interfaces
 {
@@ -6,10 +7,10 @@ namespace FitnessTracker.BLL.Interfaces
     {
         TokenDto GenerateToken(int userId);
 
-        bool ValidateToken(string tokenId);
+        bool ValidateToken(Guid tokenId);
 
-        bool Kill(string tokenId);
+        void Kill(Guid tokenId);
 
-        bool DeleteByUserId(int userId);
+        void DeleteByUserId(int userId);
     }
 }

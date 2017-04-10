@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using FitnessTracker.BLL.DTO;
 
 namespace FitnessTracker.WEB.ViewModels.AuthModels
 {
@@ -13,6 +14,6 @@ namespace FitnessTracker.WEB.ViewModels.AuthModels
 
         public string Description { get; set; }
 
-        public ICollection<UserDTO> Users { get; set; }
+        public ICollection<UserDto> Users { get; set; }
     }
 }

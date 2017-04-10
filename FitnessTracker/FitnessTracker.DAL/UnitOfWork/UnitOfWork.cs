@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using FitnessTracker.DAL.EF;
@@ -11,7 +12,7 @@ namespace FitnessTracker.DAL.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly DatabaseContext _databaseContext;
+        private readonly DbContext _databaseContext;
         private bool _disposed;
         private readonly Dictionary<Type, object> _repositories = new Dictionary<Type, object>();
 

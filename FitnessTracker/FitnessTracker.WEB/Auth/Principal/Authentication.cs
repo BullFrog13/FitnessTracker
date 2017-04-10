@@ -24,7 +24,7 @@ namespace FitnessTracker.WEB.Auth.Principal
             _userService = userService;
         }
 
-        public HttpContext HttpContext { get; set; }
+        public HttpContext HttpContext { private get; set; }
 
         public IPrincipal CurrentUser
         {
@@ -78,16 +78,6 @@ namespace FitnessTracker.WEB.Auth.Principal
             if(retUser != null)
             {
                 CreateCookie(userName, isPersistent);
-            }
-
-            return retUser;
-        }
-
-        public User Login(string userName)
-        {
-            var retUser = _mapper.Map<User>(_userService.Login(userName, null, true));
-            {
-                CreateCookie(userName);
             }
 
             return retUser;

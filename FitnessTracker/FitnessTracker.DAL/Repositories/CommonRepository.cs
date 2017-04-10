@@ -31,6 +31,11 @@ namespace FitnessTracker.DAL.Repositories
             return _db.Set<TEntity>().Where(predicate).ToList();
         }
 
+        public TEntity FindOne(Func<TEntity, bool> predicate)
+        {
+            return _db.Set<TEntity>().FirstOrDefault(predicate);
+        }
+
         public virtual void Create(TEntity item)
         {
             _db.Set<TEntity>().Add(item);
@@ -45,6 +50,15 @@ namespace FitnessTracker.DAL.Repositories
         {
             var item =  Get(id);
             _db.Set<TEntity>().Remove(item);
+        }
+
+        public virtual void Delete(Func<TEntity, bool> predicate)
+        {
+            var itemsToDelete = _db.Set<TEntity>().Where(predicate);
+            foreach (var item in itemsToDelete)
+            {
+                _db.Set<TEntity>().Remove(item);
+            }
         }
     }
 }

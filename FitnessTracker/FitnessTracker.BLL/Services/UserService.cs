@@ -31,6 +31,14 @@ namespace FitnessTracker.BLL.Services
             return userDto;
         }
 
+        public UserDto Get(string login)
+        {
+            var user = _userRepository.FindOne(x => x.UserName.Equals(login));
+            var userDto = _mapper.Map<UserDto>(user);
+
+            return userDto;
+        }
+
         public IEnumerable<UserDto> GetAll()
         {
             var users = _userRepository.GetAll().ToList();
@@ -68,15 +76,15 @@ namespace FitnessTracker.BLL.Services
             _unitOfWork.Save();
         }
 
-        public int Authenticate(string userName, string password)
+        public UserDto Login(string userName, string password)
         {
             var user = _userRepository.Find(u => u.UserName == userName && u.Password == password).FirstOrDefault();
             if (user == null)
             {
-                throw new NotImplementedException();
+                throw new InvalidLoginException("User failed to login", userName);
             }
 
-            return user.Id;
+            return _mapper.Map<UserDto>(user);
         }
     }
 }

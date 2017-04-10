@@ -7,6 +7,8 @@ namespace FitnessTracker.BLL.Interfaces
     {
         UserDto Get(int id);
 
+        UserDto Get(string login);
+
         IEnumerable<UserDto> GetAll();
 
         void Create(UserDto userDto);
@@ -15,6 +17,6 @@ namespace FitnessTracker.BLL.Interfaces
 
         void Delete(int id);
 
-        int Authenticate(string userName, string password);
+        UserDto Login(string userName, string password);
     }
 }
