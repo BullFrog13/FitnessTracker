@@ -1,4 +1,3 @@
-using System;
 using AutoMapper;
 using System.Collections.Generic;
 using System.Linq;
@@ -78,7 +77,7 @@ namespace FitnessTracker.BLL.Services
 
         public UserDto Login(string userName, string password)
         {
-            var user = _userRepository.Find(u => u.UserName == userName && u.Password == password).FirstOrDefault();
+            var user = _userRepository.FindOne(u => u.UserName == userName && u.Password == password);
             if (user == null)
             {
                 throw new InvalidLoginException("User failed to login", userName);

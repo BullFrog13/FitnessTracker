@@ -38,11 +38,11 @@ namespace FitnessTracker.WEB.Controllers
                 return View(loginModel);
             }
 
-            var user = _authentication.Login(loginModel.Email, loginModel.Password, loginModel.RememberMe);
+            var user = _authentication.Login(loginModel.UserName, loginModel.Password, loginModel.RememberMe);
 
             if(user != null)
             {
-                return RedirectToAction("GetGames", "Game");
+                return RedirectToAction("Index", "Home");
             }
 
             return View(loginModel);
@@ -55,7 +55,7 @@ namespace FitnessTracker.WEB.Controllers
         {
            _authentication.LogOut();
 
-            return RedirectToAction("GetGames", "Game", null);
+            return RedirectToAction("Index", "Home", null);
         }
 
         [HttpGet]
@@ -67,7 +67,7 @@ namespace FitnessTracker.WEB.Controllers
 
         [HttpPost]
         [Route("Register")]
-        public ActionResult Register(NewUserViewModel model)
+        public ActionResult Register(RegisterViewModel model)
         {
             if(!ModelState.IsValid)
             {
@@ -77,7 +77,7 @@ namespace FitnessTracker.WEB.Controllers
             var userDto = _mapper.Map<UserDto>(model);
             _userService.Create(userDto);
 
-            return RedirectToAction("GetGames", "Game", null);
+            return RedirectToAction("Index", "Home", null);
         }
     }
 }

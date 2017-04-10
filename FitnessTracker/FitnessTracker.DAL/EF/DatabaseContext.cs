@@ -1,4 +1,5 @@
 using System.Data.Entity;
+using FitnessTracker.DAL.Entities;
 using FitnessTracker.DAL.Interfaces;
 
 namespace FitnessTracker.DAL.EF
@@ -17,6 +18,11 @@ namespace FitnessTracker.DAL.EF
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : class
         {
             return base.Set<TEntity>();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().ToTable("User");
         }
     }
 }

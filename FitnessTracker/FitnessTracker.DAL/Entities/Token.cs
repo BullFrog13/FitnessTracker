@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FitnessTracker.DAL.Entities
 {
+    [Table("Token")]
     public class Token : BaseType
     {
         [ForeignKey("User")]

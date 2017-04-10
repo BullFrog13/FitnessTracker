@@ -1,14 +1,9 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace FitnessTracker.WEB.ViewModels.AuthModels
 {
-    public class NewUserViewModel
+    public class RegisterViewModel
     {
-        [HiddenInput]
-        public int UserId { get; set; }
-
         [Required]
         public string UserName { get; set; }
 
@@ -26,15 +21,9 @@ namespace FitnessTracker.WEB.ViewModels.AuthModels
         [Required]
         public string Password { get; set; }
 
-        [System.ComponentModel.DataAnnotations.Compare("Password")]
+        [Compare("Password")]
         [DataType(DataType.Password)]
         [Required]
         public string ConfirmPassword { get; set; }
-
-        public bool IsActive { get; set; }
-
-        public List<string> SelectedRoles { get; set; }
-
-        public IEnumerable<SelectListItem> Roles { get; set; }
     }
 }

@@ -222,7 +222,7 @@
     <Compile Include="HttpModules\AuthHttpModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AuthModels\LoginViewModel.cs" />
-    <Compile Include="ViewModels\AuthModels\NewUserViewModel.cs" />
+    <Compile Include="ViewModels\AuthModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\AuthModels\Role.cs" />
     <Compile Include="ViewModels\AuthModels\User.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
@@ -271,6 +271,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />

@@ -1,5 +1,8 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace FitnessTracker.DAL.Entities
 {
+    [Table("User")]
     public class User : BaseType
     {
         public string UserName { get; set; }
