@@ -42,7 +42,7 @@ namespace FitnessTracker.WEB
         private static IKernel CreateKernel()
         {
             var kernel = new StandardKernel();
-            var modules = new INinjectModule[] { new ServiceModule("ExampleDatabase") };
+            var modules = new INinjectModule[] { new ServiceModule("FitnessTrackerDB") };
 
             kernel.Load(modules);
 

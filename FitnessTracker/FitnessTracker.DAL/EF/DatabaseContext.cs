@@ -11,6 +11,10 @@ namespace FitnessTracker.DAL.EF
             Database.SetInitializer(new StoreDbInitializer());
         }
 
+        public DatabaseContext()
+        {
+        }
+
         public DatabaseContext(string connectionString) : base(connectionString)
         {
         }

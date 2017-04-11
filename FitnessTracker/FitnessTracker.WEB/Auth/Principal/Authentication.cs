@@ -24,7 +24,7 @@ namespace FitnessTracker.WEB.Auth.Principal
             _userService = userService;
         }
 
-        public HttpContext HttpContext { private get; set; }
+        public HttpContext HttpContext { get; set; }
 
         public IPrincipal CurrentUser
         {
