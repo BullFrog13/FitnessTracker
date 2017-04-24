@@ -6,6 +6,11 @@ namespace FitnessTracker.WEB.ViewModels.AuthModels
 {
     public class User
     {
+        public User()
+        {
+            Roles = new List<string>();
+        }
+
         public int UserId { get; set; }
 
         public string UserName { get; set; }

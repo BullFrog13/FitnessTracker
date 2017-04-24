@@ -6,7 +6,9 @@ namespace FitnessTracker.DAL.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        IRepository<T> Repository<T>() where T : BaseType;
+        //IRepository<T> Repository<T>() where T : BaseType;
+
+        IRepository<User> Users { get; }
 
         void Save();
 

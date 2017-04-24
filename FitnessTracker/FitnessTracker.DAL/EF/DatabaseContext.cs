@@ -6,11 +6,6 @@ namespace FitnessTracker.DAL.EF
 {
     public class DatabaseContext : DbContext, IDatabaseContext
     {
-        static DatabaseContext()
-        {
-            Database.SetInitializer(new StoreDbInitializer());
-        }
-
         public DatabaseContext()
         {
         }

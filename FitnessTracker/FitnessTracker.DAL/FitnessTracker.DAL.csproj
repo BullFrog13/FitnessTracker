@@ -54,8 +54,6 @@
     <Compile Include="Entities\BaseType.cs" />
     <Compile Include="Entities\Token.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Entities\Profile.cs" />
-    <Compile Include="Entities\Statistic.cs" />
     <Compile Include="Interfaces\IDatabaseContext.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />

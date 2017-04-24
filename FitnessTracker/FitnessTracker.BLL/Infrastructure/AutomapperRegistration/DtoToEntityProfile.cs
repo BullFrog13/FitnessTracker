@@ -9,10 +9,6 @@ namespace FitnessTracker.BLL.Infrastructure.AutomapperRegistration
         public DtoToEntityProfile()
         {
             CreateMap<UserDto, User>();
-
-            CreateMap<ProfileDto, Profile>();
-
-            CreateMap<StatisticDto, Statistic>();
         }
     }
 }

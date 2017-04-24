@@ -13,18 +13,16 @@ namespace FitnessTracker.BLL.Services
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        private readonly IRepository<User> _userRepository;
 
         public UserService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
-            _userRepository = _unitOfWork.Repository<User>();
         }
         
         public UserDto Get(int id)
         {
-            var user = _userRepository.Get(id);
+            var user = _unitOfWork.Users.Get(id);
             var userDto = _mapper.Map<UserDto>(user);
 
             return userDto;
@@ -32,7 +30,7 @@ namespace FitnessTracker.BLL.Services
 
         public UserDto Get(string login)
         {
-            var user = _userRepository.FindOne(x => x.UserName.Equals(login));
+            var user = _unitOfWork.Users.FindOne(x => x.UserName.Equals(login));
             var userDto = _mapper.Map<UserDto>(user);
 
             return userDto;
@@ -40,7 +38,7 @@ namespace FitnessTracker.BLL.Services
 
         public IEnumerable<UserDto> GetAll()
         {
-            var users = _userRepository.GetAll().ToList();
+            var users = _unitOfWork.Users.GetAll().ToList();
             var usersDto = _mapper.Map<IEnumerable<UserDto>>(users);
 
             return usersDto;
@@ -50,13 +48,13 @@ namespace FitnessTracker.BLL.Services
         {
             var user = _mapper.Map<User>(userDto);
 
-            _userRepository.Create(user);
+            _unitOfWork.Users.Create(user);
             _unitOfWork.Save();
         }
 
         public void Edit(UserDto userDto)
         {
-            var updatingUser = _userRepository.Get(userDto.Id);
+            var updatingUser = _unitOfWork.Users.Get(userDto.Id);
 
             if (updatingUser == null)
             {
@@ -65,19 +63,19 @@ namespace FitnessTracker.BLL.Services
 
             _mapper.Map(userDto, updatingUser);
 
-            _userRepository.Update(updatingUser);
+            _unitOfWork.Users.Update(updatingUser);
             _unitOfWork.Save();
         }
 
         public void Delete(int id)
         {
-            _userRepository.Delete(id);
+            _unitOfWork.Users.Delete(id);
             _unitOfWork.Save();
         }
 
         public UserDto Login(string userName, string password)
         {
-            var user = _userRepository.FindOne(u => u.UserName == userName && u.Password == password);
+            var user = _unitOfWork.Users.FindOne(u => u.UserName == userName && u.Password == password);
             if (user == null)
             {
                 throw new InvalidLoginException("User failed to login", userName);

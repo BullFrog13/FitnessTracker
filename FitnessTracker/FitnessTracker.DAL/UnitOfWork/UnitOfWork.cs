@@ -1,7 +1,5 @@
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
 using System.Threading.Tasks;
 using FitnessTracker.DAL.EF;
 using FitnessTracker.DAL.Entities;
@@ -14,25 +12,30 @@ namespace FitnessTracker.DAL.UnitOfWork
     {
         private readonly DbContext _databaseContext;
         private bool _disposed;
-        private readonly Dictionary<Type, object> _repositories = new Dictionary<Type, object>();
+        //private readonly Dictionary<Type, object> _repositories = new Dictionary<Type, object>();
+
+        private IRepository<User> _userRepository;
 
         public UnitOfWork(string databaseConnectionString)
         {
             _databaseContext = new DatabaseContext(databaseConnectionString);
         }
 
-        public IRepository<TEntity> Repository<TEntity>() where TEntity : BaseType
-        {
-            if (_repositories.Keys.Contains(typeof(TEntity)))
-            {
-                return _repositories[typeof(TEntity)] as IRepository<TEntity>;
-            }
 
-            var repository = new CommonRepository<TEntity>(_databaseContext);
-            _repositories.Add(typeof(TEntity), repository);
+        public IRepository<User> Users => _userRepository ?? (_userRepository = new CommonRepository<User>(_databaseContext));
 
-            return repository;
-        }
+        /* public IRepository<TEntity> Repository<TEntity>() where TEntity : BaseType
+         {
+             if (_repositories.Keys.Contains(typeof(TEntity)))
+             {
+                 return _repositories[typeof(TEntity)] as IRepository<TEntity>;
+             }
+ 
+             var repository = new CommonRepository<TEntity>(_databaseContext);
+             _repositories.Add(typeof(TEntity), repository);
+ 
+             return repository;
+         }*/
 
         public void Save()
         {
