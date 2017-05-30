@@ -6,19 +6,18 @@
     <meta name="description" content="FitnessTracker">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
-    <title>FitnessTracker</title>
+    <title>Fitness Tracker</title>
 
-    <!-- Page styles -->
     @Styles.Render("https://fonts.googleapis.com/icon?family=Material+Icons")
     @Styles.Render("~/Content/materialize.min.css")
     @Styles.Render("~/Content/styles.css")
 </head>
 
 <body>
-    <nav class="white" role="navigation">
+    <nav class="grey" role="navigation">
         <div class="nav-wrapper container">
             <a href="@Url.RouteUrl(new {controller = "Home", action = "Index"})" id="logo-container" class="brand-logo">
-                <span>HospitalManager</span>
+                <span>Your Fitness Tracker</span>
             </a>
             <ul class="right hide-on-med-and-down menu-link">
                 @if(!User.Identity.IsAuthenticated)
@@ -34,12 +33,6 @@
                 else
                 {
                     <span class="grey-text">Hello, @User.Identity.Name</span>
-                    if(User.IsInRole("doctor"))
-                    {
-                        <li class="right hide-on-med-and-down">
-                            @Html.ActionLink("Administartion", "AdminPage", "User")
-                        </li>
-                    }
                     <li class="right hide-on-med-and-down">
                         @Html.ActionLink("Logout", "Logout", "Account")
                     </li>

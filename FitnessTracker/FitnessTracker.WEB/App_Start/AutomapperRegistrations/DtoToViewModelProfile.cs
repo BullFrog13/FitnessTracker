@@ -10,8 +10,10 @@ namespace FitnessTracker.WEB.AutomapperRegistrations
         public DtoToViewModelProfile()
         {
             CreateMap<UserDto, UserViewModel>();
-
             CreateMap<UserDto, User>();
+            CreateMap<WatchStatisticDto, WatchStatisticViewModel>();
+            CreateMap<BalanceStatisticDto, BalanceStatisticViewModel>();
+            CreateMap<MotionStatisticDto, MotionStatisticViewModel>();
         }
     }
 }

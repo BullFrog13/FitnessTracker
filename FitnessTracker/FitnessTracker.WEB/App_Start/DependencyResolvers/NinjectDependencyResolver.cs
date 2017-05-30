@@ -52,6 +52,12 @@ namespace FitnessTracker.WEB.DependencyResolvers
 
             var autoMapperConfiguration = new AutoMapperConfiguration();
             _kernel.Bind<IMapper>().ToConstant(autoMapperConfiguration.Configure().CreateMapper()).InSingletonScope();
+
+            _kernel.Bind<IBalanceStatisticService>().To<BalanceStatisticService>();
+
+            _kernel.Bind<IMotionStatisticService>().To<MotionStatisticService>();
+
+            _kernel.Bind<IWatchStatisticService>().To<WatchStatisticService>();
         }
     }
 }

@@ -199,6 +199,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiControllers\ApiUserController.cs" />
+    <Compile Include="ApiControllers\BalanceApiController.cs" />
+    <Compile Include="ApiControllers\MotionApiController.cs" />
+    <Compile Include="ApiControllers\WatchApiController.cs" />
     <Compile Include="App_Start\AutomapperRegistrations\AutoMapperConfiguration.cs" />
     <Compile Include="App_Start\AutomapperRegistrations\DtoToViewModelProfile.cs" />
     <Compile Include="App_Start\AutomapperRegistrations\ViewModelToDtoProfile.cs" />
@@ -259,7 +262,11 @@
     <Compile Include="ViewModels\AuthModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\AuthModels\Role.cs" />
     <Compile Include="ViewModels\AuthModels\User.cs" />
+    <Compile Include="ViewModels\BalanceStatisticViewModel.cs" />
+    <Compile Include="ViewModels\MotionStatisticViewModel.cs" />
+    <Compile Include="ViewModels\StatisticWrapperViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="ViewModels\WatchStatisticViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -325,9 +332,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\WatchSatistic\GetUserWatchStatistic.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\BalanceStatistic\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\MotionStatistic\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
